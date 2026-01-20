@@ -2,7 +2,6 @@
 let studentsPerPage = 9;
 const buttonsContainer = document.querySelector(".link-list");
 const studentsList = document.querySelector(".student-list");
-let currentList = data;
 
 // Add a search component dynamically
 const header = document.querySelector("header");
@@ -22,6 +21,7 @@ searchBar.addEventListener("input", () => {
   const userSearch = searchBar.value.toLowerCase().trim();
 
   const filteredStudents = [];
+
   for (let i = 0; i < data.length; i++) {
     const fullName = `${data[i].name.first} ${data[i].name.last}`.toLowerCase();
     if (fullName.includes(userSearch)) {
@@ -29,11 +29,9 @@ searchBar.addEventListener("input", () => {
     }
   }
 
-  currentList = filteredStudents;
-
   if (filteredStudents.length > 0) {
-    showPage(currentList, 1);
-    addPagination(currentList);
+    showPage(filteredStudents, 1);
+    addPagination(filteredStudents);
   } else {
     studentsList.innerHTML = ""; // don't put <h3> inside a <ul>
     buttonsContainer.innerHTML = "";
@@ -82,20 +80,19 @@ function addPagination(list) {
     buttonsContainer.insertAdjacentHTML("beforeend", html);
   }
   buttonsContainer.querySelector("button").classList.add("active");
+  // Handles pagination clicks and updates the active page
+  buttonsContainer.addEventListener("click", (e) => {
+    const activeButton = buttonsContainer.querySelector(".active");
+    const clickedButton = e.target.closest("button");
+
+    if (clickedButton) {
+      activeButton.classList.remove("active");
+      clickedButton.classList.add("active");
+    }
+    showPage(list, clickedButton.textContent);
+  });
 }
 
-// Handles pagination clicks and updates the active page
-buttonsContainer.addEventListener("click", (e) => {
-  const activeButton = buttonsContainer.querySelector(".active");
-  const clickedButton = e.target.closest("button");
-
-  if (clickedButton) {
-    activeButton.classList.remove("active");
-    clickedButton.classList.add("active");
-  }
-  showPage(currentList, clickedButton.textContent);
-});
-
 // Call functions
-showPage(currentList, 1);
-addPagination(currentList);
+showPage(data, 1);
+addPagination(data);
