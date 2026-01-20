@@ -15,9 +15,9 @@ It focuses on DOM manipulation, event handling, and working with arrays of objec
 
 🎯 Project Requirements
 
-- Create a showePage function to rendering the student cards to the page.
-- Create an addPagination function for rendering the paginations buttons to the page.
-- Create an handler to click and update the active page 
+- Create a showPage function to render student cards on the page
+- Create an addPagination function to render pagination buttons
+- Create a click handler to update the active page
 
 
 ⭐ Extra Credit Features
@@ -25,7 +25,7 @@ It focuses on DOM manipulation, event handling, and working with arrays of objec
 - Add a search component
 - Add a search functionality
 - Add pagination for  search results
-- Handle no results
+- Handle cases where no results are found
 
 
 🧪 Testing & Quality Assurance
@@ -43,10 +43,10 @@ It focuses on DOM manipulation, event handling, and working with arrays of objec
 🧠 What I Learned in this unit 
 
 - How JavaScript works with the DOM
-- Interacting with the DOM
-- DOM scripting
+- DOM manipulation and scripting
 - Debugging JavaScript in the browser
 - Plan with pseudocode
+- Writing reusable and maintainable functions
 
 
 🛠️ Tech Stack
