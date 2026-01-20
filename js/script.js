@@ -21,14 +21,6 @@ const searchBar = document.getElementById("search");
 searchBar.addEventListener("input", () => {
   const userSearch = searchBar.value.toLowerCase().trim();
 
-  // Reset to full list if input is empty
-  if (userSearch === "") {
-    currentList = data;
-    showPage(currentList, 1);
-    addPagination(currentList);
-    return;
-  }
-
   const filteredStudents = [];
   for (let i = 0; i < data.length; i++) {
     const fullName = `${data[i].name.first} ${data[i].name.last}`.toLowerCase();
