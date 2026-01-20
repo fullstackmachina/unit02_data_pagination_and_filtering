@@ -6,7 +6,7 @@ This project displays a list of students with pagination and dynamic filtering.
 It focuses on DOM manipulation, event handling, and working with arrays of objects to build an interactive and user-friendly interface using vanilla JavaScript.
 
 
-🔗 Live Preview: https://fullstackmachina.github.io/unit02_data_pagination_and_filtering/
+🔗 Live : https://fullstackmachina.github.io/unit02_data_pagination_and_filtering/
 
 
 📸 Preview
