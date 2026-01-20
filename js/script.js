@@ -1,7 +1,8 @@
 // Required variables
-const studentsPerPage = 9;
+let studentsPerPage = 9;
 const buttonsContainer = document.querySelector(".link-list");
 const studentsList = document.querySelector(".student-list");
+let currentList = data;
 
 // Add a search component dynamically
 const header = document.querySelector("header");
@@ -17,24 +18,37 @@ header.insertAdjacentHTML(
 
 // Add a search functionality
 const searchBar = document.getElementById("search");
-
 searchBar.addEventListener("input", () => {
-  const filteredStudents = [];
-  const userSearch = searchBar.value.toLowerCase();
-  for (let i = 1; i < data.length; i++) {
-    const currentStudents =
-      `${data[i].name.first} ${data[i].name.last}`.toLowerCase();
+  const userSearch = searchBar.value.toLowerCase().trim();
 
-    if (currentStudents.includes(userSearch)) {
+  // Reset to full list if input is empty
+  if (userSearch === "") {
+    currentList = data;
+    showPage(currentList, 1);
+    addPagination(currentList);
+    return;
+  }
+
+  const filteredStudents = [];
+  for (let i = 0; i < data.length; i++) {
+    const fullName = `${data[i].name.first} ${data[i].name.last}`.toLowerCase();
+    if (fullName.includes(userSearch)) {
       filteredStudents.push(data[i]);
     }
   }
+
+  currentList = filteredStudents;
+
   if (filteredStudents.length > 0) {
-    addPagination(filteredStudents);
-    showPage(filteredStudents, 1);
+    showPage(currentList, 1);
+    addPagination(currentList);
   } else {
-    studentsList.innerHTML = "<h3>No students were found.</h3>";
+    studentsList.innerHTML = ""; // don't put <h3> inside a <ul>
     buttonsContainer.innerHTML = "";
+    studentsList.insertAdjacentHTML(
+      "beforeend",
+      "<li><h3>No students were found.</h3></li>",
+    );
   }
 });
 
@@ -87,9 +101,9 @@ buttonsContainer.addEventListener("click", (e) => {
     activeButton.classList.remove("active");
     clickedButton.classList.add("active");
   }
-  showPage(data, clickedButton.innerHTML);
+  showPage(currentList, clickedButton.textContent);
 });
 
 // Call functions
-showPage(data, 1);
-addPagination(data);
+showPage(currentList, 1);
+addPagination(currentList);
