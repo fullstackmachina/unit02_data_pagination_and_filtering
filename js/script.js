@@ -33,7 +33,7 @@ searchBar.addEventListener("input", () => {
     showPage(filteredStudents, 1);
     addPagination(filteredStudents);
   } else {
-    studentsList.innerHTML = ""; // don't put <h3> inside a <ul>
+    studentsList.innerHTML = ""; 
     buttonsContainer.innerHTML = "";
     studentsList.insertAdjacentHTML(
       "beforeend",
