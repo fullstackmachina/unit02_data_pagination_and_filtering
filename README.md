@@ -10,7 +10,7 @@ It focuses on DOM manipulation, event handling, and working with arrays of objec
 
 
 📸 Preview
-<img width="1920" height="911" alt="image" src="https://github.com/user-attachments/assets/b419cf48-397c-4b5e-aa04-3f0487fbe852" />
+<img src="preview_project2.png" alt="Preview" width="800" />
 
 
 🎯 Project Requirements

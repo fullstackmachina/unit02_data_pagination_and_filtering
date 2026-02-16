@@ -33,7 +33,7 @@ searchBar.addEventListener("input", () => {
     showPage(filteredStudents, 1);
     addPagination(filteredStudents);
   } else {
-    studentsList.innerHTML = ""; 
+    studentsList.innerHTML = "";
     buttonsContainer.innerHTML = "";
     studentsList.insertAdjacentHTML(
       "beforeend",
